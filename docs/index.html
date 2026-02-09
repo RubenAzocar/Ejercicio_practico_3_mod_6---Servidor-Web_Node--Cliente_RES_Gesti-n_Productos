@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Codificación de caracteres UTF-8 para soportar tildes y caracteres especiales -->
+    <meta charset="UTF-8">
+    <!-- Configuración para diseño responsivo en dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <!-- Enlace a la hoja de estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <p class="eyebrow">Tech Store</p>
+            <h1>Lista de Articulos</h1>
+            <p class="subtitle">Catalogo simple con ordenamiento y alta de productos.</p>
+        </div>
+        <div class="hero-card">
+            <div class="hero-metric">
+                <span class="metric-label">Stock</span>
+                <span class="metric-value">Actualizado en tiempo real</span>
+            </div>
+            <div class="hero-metric">
+                <span class="metric-label">API</span>
+                <span class="metric-value">GET / POST en JSON</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="layout">
+        <section class="panel">
+            <h2>Controles</h2>
+            <div class="controls">
+                <!-- Botón que ejecuta la función de ordenamiento según el criterio seleccionado -->
+                <button id="ordenarBtn" class="btn secondary">Ordenar Productos</button>
+
+                <!-- Select para elegir el criterio de ordenamiento (nombre o precio) -->
+                <!-- El valor (value) de cada opción será usado en JavaScript para identificar el tipo de orden -->
+                <select id="criterioOrden" class="select">
+                    <option value="nombre">Ordenar por Nombre</option>
+                    <option value="precioAscendente">Ordenar por Precio de menor a mayor</option>
+                    <option value="precioDescendente">Ordenar por Precio de mayor a menor</option>
+                </select>
+
+                <button id="listarProductos" class="btn primary">Lista de Articulos</button>
+            </div>
+
+            <h2>Agregar producto</h2>
+            <!-- Formulario para capturar datos del nuevo producto y enviarlos al servidor (POST) -->
+            <form id="productoForm" class="form">
+                <!-- Input de texto para el nombre del producto (obligatorio) -->
+                <label class="field">
+                    <span>Nombre del producto</span>
+                    <input type="text" id="nombre" placeholder="Ej: Monitor" required>
+                </label>
+
+                <!-- Input numérico para el precio (obligatorio) -->
+                <label class="field">
+                    <span>Precio</span>
+                    <input type="number" id="precio" placeholder="Ej: 299" required>
+                </label>
+
+                <!-- Botón de envío del formulario -->
+                <button type="submit" class="btn primary">Agregar Nuevo Producto</button>
+            </form>
+        </section>
+
+        <section class="catalogo">
+            <div class="catalogo-header">
+                <h2>Productos</h2>
+                <p class="hint">Sugerencia: ordena por precio para ver las ofertas.</p>
+            </div>
+
+            <!-- Contenedor vacío donde se mostrarán dinámicamente los productos obtenidos -->
+            <div id="productosDisplay" class="productos-grid"></div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+    <!-- Enlace al archivo JavaScript que contiene toda la lógica del cliente -->
+    <script src="script.js"></script>
+</body>
+</html>

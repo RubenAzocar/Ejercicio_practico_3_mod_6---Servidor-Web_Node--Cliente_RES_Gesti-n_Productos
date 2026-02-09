@@ -1,0 +1,8 @@
+Laptop, 500
+Mouse, 25
+Teclado, 45
+Monitor, 300
+Webcam, 80
+MousePad, 50
+Mouse Gamer, 200
+tablet, 500
